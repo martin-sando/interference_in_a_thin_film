@@ -11,6 +11,7 @@ n2 = 1.57
 massive_of_wavelengths = arange(400, 800, 5) #nanometers
 massive_of_film_thicknesses = arange(50, 550, 50) #nanometers
 massive_of_incidence_angles = around(arange(0, pi/2, pi/200), 3) #rad
+#massive_of_incidence_angles = [0, 0.523, 0.7, 0.872, 1.05] #- для подгона графика из википедии 
 massive_of_n0 = arange(1, 2.6, 0.2)
 massive_of_n1 = arange(1, 2.6, 0.2)
 massive_of_n2 = arange(1, 2.6, 0.2)
