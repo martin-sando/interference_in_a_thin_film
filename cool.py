@@ -21,7 +21,7 @@ fig = plt.figure()
 
 def plotting_graph_where_x_is_incidence_angle(film_thickness, wavelength, n0, n1, n2, info_for_label): #строим график R(угол падения)
     global fig, massive_of_incidence_angles
-    cos_fi1 = sqrt(1 - (n0**2 * sin(massive_of_incidence_angles) * sin(massive_of_incidence_angles)) / (n1**2))
+    cos_fi1 = sqrt(1 - (n0 * sin(massive_of_incidence_angles) / n1)**2)
     cosinus_2delta = cos(4 * pi * n1 * film_thickness * cos_fi1 / wavelength)
     R_numerator = (n0**2 + n1**2) * (n1**2 + n2**2) - 4 * n0 * n1**2 * n2 + (n0**2 - n1**2) * (n1**2 - n2**2) * cosinus_2delta
     R_denominator = (n0**2 + n1**2) * (n1**2 + n2**2) + 4 * n0 * n1**2 * n2 + (n0**2 - n1**2) * (n1**2 - n2**2) * cosinus_2delta
@@ -29,7 +29,7 @@ def plotting_graph_where_x_is_incidence_angle(film_thickness, wavelength, n0, n1
 
 def plotting_graph_where_x_is_wavelength(film_thickness, incidence_angle, n0, n1, n2, info_for_label): #строим график R(длина волны)
     global fig, massive_of_wavelengths
-    cos_fi1 = sqrt(1 - (n0**2 * sin(incidence_angle) * sin(incidence_angle)) / (n1**2))
+    cos_fi1 = sqrt(1 - (n0 * sin(incidence_angle) / n1)**2)
     cosinus_2delta = cos(4 * pi * n1 * film_thickness * cos_fi1 / massive_of_wavelengths)
     R_numerator = (n0**2 + n1**2) * (n1**2 + n2**2) - 4 * n0 * n1**2 * n2 + (n0**2 - n1**2) * (n1**2 - n2**2) * cosinus_2delta
     R_denominator = (n0**2 + n1**2) * (n1**2 + n2**2) + 4 * n0 * n1**2 * n2 + (n0**2 - n1**2) * (n1**2 - n2**2) * cosinus_2delta
