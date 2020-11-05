@@ -1,4 +1,3 @@
-#гениальный код!!!
 import matplotlib.pyplot as plt
 from numpy import pi, sqrt, cos, arange, sin, around, meshgrid
 
@@ -22,7 +21,7 @@ massive_of_incidence_angles_for_x = around(arange(0, pi/2, pi/400), 3) #rad
 
 need_to_plot_R_vs_wavelength = False
 need_to_plot_R_vs_wavelength_and_film_thickness = False
-need_to_plot_R_vs_wavelength_and_incidence_angle = False
+need_to_plot_R_vs_wavelength_and_incidence_angle = True
 need_to_plot_R_vs_wavelength_and_n0 = False
 need_to_plot_R_vs_wavelength_and_n1 = False
 need_to_plot_R_vs_wavelength_and_n2 = False
@@ -106,27 +105,27 @@ if need_to_plot_R_vs_wavelength_and_n2: #строим график R(длина 
     plt.title('График R(длина волны). Толщина плёнки = '+str(film_thickness)+' nm, угол падения = '+str(around(incidence_angle/3.14, 3))+'pi, n0 = ' +str(n0)+', n1 = '+str(n1))
     settings_of_graph_where_x_is_wavelength(fig)
     
-if need_to_plot_R_vs_incidence_angle:
+if need_to_plot_R_vs_incidence_angle: #строим график R(угол падения)
     fig = plt.figure()
     plotting_graph_where_x_is_incidence_angle(fig, film_thickness, wavelength, n0, n1, n2, info_for_label = None)
     plt.title('График R(угол падения). Длина волны = '+str(wavelength)+' nm, толщина плёнки = '+str(film_thickness)+' nm, n0 = '+str(n0)+', n1 = ' +str(n1)+', n2 = '+str(n2))
     settings_of_graph_where_x_is_incidence_angle(fig)
     
-if need_to_plot_R_vs_incidence_angle_and_wavelength:
+if need_to_plot_R_vs_incidence_angle_and_wavelength: #строим график R(угол падения, длина волны)
     fig = plt.figure()
     for i in range(len(massive_of_wavelengths)):
         plotting_graph_where_x_is_incidence_angle(fig, film_thickness, massive_of_wavelengths[i], n0, n1, n2, info_for_label = 'Длина волны = '+ str(massive_of_wavelengths[i])+' nm')
     plt.title('График R(угол падения). Толщина плёнки = '+str(film_thickness)+' nm, n0 = '+str(n0)+', n1 = ' +str(n1)+', n2 = '+str(n2))
     settings_of_graph_where_x_is_incidence_angle(fig)
 
-if need_to_plot_R_vs_incidence_angle_and_film_thickness:
+if need_to_plot_R_vs_incidence_angle_and_film_thickness: #строим график R(угол падения, толщина плёнки)
     fig = plt.figure()
     for i in range(len(massive_of_film_thicknesses)):
         plotting_graph_where_x_is_incidence_angle(fig, massive_of_film_thicknesses[i], wavelength, n0, n1, n2, info_for_label = 'Толщина плёнки = '+ str(massive_of_film_thicknesses[i])+' nm')
     plt.title('График R(угол падения). Длина волны = '+str(wavelength)+' nm, n0 = '+str(n0)+', n1 = ' +str(n1)+', n2 = '+str(n2))
     settings_of_graph_where_x_is_incidence_angle(fig)
 
-if need_to_plot_2Dcolormap:
+if need_to_plot_2Dcolormap: #строим 2d colormap R(длина волны, угол падения)
     fig = plt.figure()
     X, Y = meshgrid(massive_of_wavelengths_for_x, massive_of_incidence_angles_for_x)
     R = calculate_R(X, film_thickness, Y, n0, n1, n2)
