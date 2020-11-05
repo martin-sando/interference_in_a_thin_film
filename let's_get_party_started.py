@@ -127,6 +127,7 @@ if need_to_plot_R_vs_incidence_angle_and_film_thickness:
     settings_of_graph_where_x_is_incidence_angle(fig)
 
 if need_to_plot_2Dcolormap:
+    fig = plt.figure()
     X, Y = meshgrid(massive_of_wavelengths_for_x, massive_of_incidence_angles_for_x)
     R = calculate_R(X, film_thickness, Y, n0, n1, n2)
     im = plt.pcolor(X, Y, R, cmap=plt.cm.RdBu)
